@@ -12,7 +12,7 @@
             "windows": "\ue70f "
           },
           "style": "powerline",
-          "template": " {{ if .WSL }}WSL {{ end }}{{.Icon}} ",
+          "template": " {{ if .WSL }}  {{ end }}{{.Icon}} ",
           "type": "os"
         },
         {
@@ -20,10 +20,11 @@
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
-          "template": " {{ .HostName }} ",
+          "template": " {{ .HostName }}@{{ .UserName }} ",
           "type": "session"
         },
         {
+          "type": "path",
           "background": "#057a55",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
@@ -31,9 +32,46 @@
             "style": "full"
           },
           "style": "powerline",
-          "template": " {{ .Path }} ",
-          "type": "path"
+          "template": " {{ .Path }} "
         },
+        // ------------------------------------------------------------- cloud computing ------------------------------------------------------------------------
+        {
+          "type": "aws",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#FFA400",
+          "template": " \uE7AD {{.Profile}}{{if .Region}}@{{.Region}}{{end}}"
+        },
+        {
+          "type": "az",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#0a5ba6",
+          "template": " \uFD03 {{ .EnvironmentName }}"
+        },
+        {
+          "type": "azfunc",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#FEAC19",
+          "template": " \uf0e7 {{ .Full }} ",
+          "properties": {
+              "fetch_version": true,
+              "display_mode": "files"
+          }
+        },
+        {
+          "type": "terraform",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#4040b2",
+          "template": "{{.WorkspaceName}}"
+        },
+        // ------------------------------------------------------------------ Git -----------------------------------------------------------------------------
         {
           "background": "#046c4e",
           "foreground": "#ffffff",
@@ -47,6 +85,7 @@
           "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
           "type": "git"
         },
+        // ------------------------------------------------------------ package managers / other -----------------------------------------------------------------------------
         {
           "background": "#08a045",
           "foreground": "#ffffff",
@@ -63,6 +102,7 @@
           "background": "#ffeb3b",
           "template": " \ue616  {{ .Full }} "
         },
+        // ------------------------------------------------------------------ languages -----------------------------------------------------------------------------
         {
           "type": "rust",
           "style": "powerline",
@@ -88,6 +128,121 @@
           "template": " \uE235  {{ .Full }} "
         },
         {
+          "type": "dart",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#06A4CE",
+          "template": " \uE798 {{ .Full }} "
+        },
+        {
+          "type": "go",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#7FD5EA",
+          "template": " \uFCD1 {{ .Full }} "
+        },
+        {
+          "type": "haskell",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#906cff",
+          "background": "#100e23",
+          "template": " \ue61f {{ .Full }}"
+        },
+        {
+          "type": "java",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#4063D8",
+          "template": " \uE738 {{ .Full }}"
+        },
+        {
+          "type": "julia",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#4063D8",
+          "template": " \uE624 {{ .Full }} "
+        },
+        {
+          "type": "kotlin",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#906cff",
+          "template": " \ufa05 {{ .Full }} "
+        },
+        {
+          "type": "lua",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "white",
+          "background": "blue",
+          "template": " \ue620 {{ .Full }} "
+        },
+        {
+          "type": "perl",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#4063D8",
+          "template": " \ue769 {{ .Full }}"
+        },
+        {
+          "type": "php",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#4063D8",
+          "template": " \ue73d {{ .Full }} "
+        },
+        {
+          "type": "r",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "blue",
+          "background": "lightWhite",
+          "template": " R {{ .Full }} "
+        },
+        {
+          "type": "swift",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#f6553c",
+          "template": " \ue755 {{ .Full }} "
+        },
+        // ------------------------------------------------------------- frameworks ------------------------------------------------------------------------
+        {
+          "type": "angular",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#000000",
+          "background": "#e33237",
+          "template": " \uE753 {{ .Full }} "
+        },
+        {
+          "type": "flutter",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#005799",
+          "template": " \ue28e {{ .Full }} "
+        },
+        {
+          "type": "dotnet",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#671f79",
+          "template": " \uE77F {{ .Full }} "
+        },
+
+
+        {
           "background": "#2e9599",
           "background_templates": [
             "{{ if gt .Code 0 }}#e01e37{{ end }}"
@@ -103,7 +258,7 @@
         {
           "background": "#5e60ce",
           "foreground": "#ffffff",
-          "powerline_symbol": "\ue0b0",
+          "powerline_symbol": "",
           "properties": {
             "always_enabled": true
           },
@@ -121,7 +276,7 @@
         {
           "foreground": "#45F1C2",
           "style": "plain",
-          "template": " <#45F1C2><b>\u26a1</b></><b> {{ .UserName }}</b> <#26C6DA>\u276f</><#45F1C2>\u276f</>",
+          "template": " <#45F1C2><b>\u26a1</b></><#26C6DA>\u276f</><#45F1C2>\u276f</>",
           "type": "text"
         }
       ],
